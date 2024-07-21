@@ -140,9 +140,13 @@
         <img src="static/images/pipeline.png" alt="pipeline"/>
       <h2 class="subtitle">
         We propose a novel method, AttentionHand, for text-driven controllable hand image generation.
+        <br>
         (1) In the data preparation phase, we prepare global and local RGB images, global and local hand mesh images, bounding box, and text prompt.
-        (2) In the encoding phase, we get global and local latent image embeddings, and text embedding.
+        <br>
+        (2) In the encoding phase, we get global and local latent image embeddings from VQ-GAN, and text embedding from CLIP.
+        <br>
         (3) In the conditioning phase, we refine image embeddings through the text attention stage, and obtain the diffusion feature through the visual attention stage.
+        <br>
         (4) In the decoding phase, we generate a new hand image from the diffusion feature.
       </h2>
 	  </div>
@@ -302,22 +306,15 @@
           <img src="static/images/intro.png" alt="intro" width="700px"/>
 		</div>
 		<p class="content has-text-justified">
-            3D hand mesh reconstruction becomes difficult when hands are in the wild, due to insufficiency of in-the-wild 3D hand datasets. 
+            3D hand mesh reconstruction becomes difficult <b>when hands are in the wild, due to insufficiency of in-the-wild 3D hand datasets.</b>
             Compared to in-the-lab datasets, acquisition in-the-wild datasets is challenging due to unpredictable conditions such as weather, lighting, cost of sensors, and safety issues on crowded roads and public places.
             Even if an in-the-wild dataset is collected, data diversity would be poor due to the aforementioned severe constraints.
-            Although arbitrary labels can be obtained through pseudo annotation, the precision and accuracy is still poor compared to in-the-lab datasets as shown in the figure (a).
+            Although arbitrary labels can be obtained through pseudo annotation, <b>the precision and accuracy is still poor compared to in-the-lab datasets as shown in the figure (a).</b>
             To tackle this problem, several synthetic datasets have introduced.
-            However, since the hand and background images are synthesized out of harmony, they consist of unnatural and unrealistic hand images as shown in the figure (b). 
+            However, <b>since the hand and background images are synthesized out of harmony, they consist of unnatural and unrealistic hand images as shown in the figure (b).</b> 
             Hence, it is difficult to overcome the domain gap between indoor and outdoor scenes with synthetic datasets.
             To address these issues, we propose AttentionHand, a new method for the text-driven controllable hand image generation.
-            AttentionHand is designed based on Stable Diffusion to create accurate, natural, realistic and harmonious in-the-wild hand images easily and infinitely as shown in the figure (c).
-        </p>
-        <div class="column is-centered has-text-centered">
-          <img src="static/images/attention.png" alt="attention" width="700px"/>
-        </div>
-        <p class="content has-text-justified">
-            Especially, we attends on hand-related tokens from the given text prompt by leveraging attention maps as shown in the figure.
-            Red and green boxes represent attention maps without and with AttentionHand, respectively.
+            <b>AttentionHand is designed to create accurate, natural, realistic and harmonious in-the-wild hand images easily and infinitely as shown in the figure (c).</b>
         </p>
       </div>
     </div>
