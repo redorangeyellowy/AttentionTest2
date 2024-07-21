@@ -327,34 +327,56 @@
 <section class="hero is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">How does it work?</h2>
-          <div class="content has-text-justified">
-          </div>
-          <div class="column is-centered has-text-centered">
-              <img src="static/images/TAS.png" alt="TAS" width="700px"/>
-          </div>
-          <p class="content has-text-justified">
-              Overall process of the text attention stage (TAS). By leveraging the hand-related tagging and refinement, we can highlight hand-related attention maps, which leads to update noisy embeddings with our novel loss.
-          </p>
-          <div class="column is-centered has-text-centered">
-              <img src="static/images/VAS.png" alt="VAS" width="500px"/>
-          </div>
-          <p>
-              Overall process of the visual attention stage (VAS). By utilizing the global and local information, we can obtain the harmonious diffusion feature, which leads to generate high-fidelity hand images.
-          </p>
-          <div class="column is-centered has-text-centered">
-              <img src="static/images/optimization.png" alt="optimization" width="500px"/>
-          </div>
-          <p>
-              Overall process of the optimization of AttentionHand. By global and local denoising of updated noisy embeddings with t diffusion steps, we obtain global and local predicted noises.
-              They are optimized by L2 loss with global and local residual noises. 
-              Note that global and local denoising networks share weights.
-          </p>
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How does it work?</h2>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/TAS.png" alt="TAS" width="700px"/>
         </div>
+        <p class="content has-text-justified">
+          Overall process of the text attention stage (TAS). By leveraging the hand-related tagging and refinement, we can highlight hand-related attention maps, which leads to update noisy embeddings with our novel loss.
+        </p>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/VAS.png" alt="VAS" width="500px"/>
+        </div>
+        <p>
+          Overall process of the visual attention stage (VAS). By utilizing the global and local information, we can obtain the harmonious diffusion feature, which leads to generate high-fidelity hand images.
+        </p>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/optimization.png" alt="optimization" width="500px"/>
+        </div>
+        <p>
+          Overall process of the optimization of AttentionHand. By global and local denoising of updated noisy embeddings with t diffusion steps, we obtain global and local predicted noises.
+          They are optimized by L2 loss with global and local residual noises. 
+          Note that global and local denoising networks share weights.
+        </p>
       </div>
+    </div>
   </div>
 </section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Exploration for Text Attention Stage</h2>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/exp_TAS.png" alt="exp_TAS" width="700px"/>
+        </div>
+		    <p class="content has-text-justified">
+          Attention maps with red and green box are results without and with TAS, respectively.
+          Red and green bounding boxes indicate wrong and correct hand poses, respectively.
+        </p>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/exp_Gaussian.png" alt="exp_Gaussian" width="700px"/>
+        </div>
+        <p class="content has-text-justified">
+          Ablation studies on Gaussian filter, losses, and the regularization of the residual noise for the text attention stage (TAS).
+          Red and green bounding boxes indicate wrong and correct hand poses, respectively.
+        </p>
+      </div>
+    </div>
+  </div>
+</section> 
 
 <section class="hero is-small is-light">
   <div class="hero-body">
@@ -385,21 +407,19 @@
   <div class="hero-body">
     <div class="container">
       <!-- Paper poster -->
-
-      <h2 class="title has-text-centered">Uncurated Results</h2>
+      <h2 class="title has-text-centered">Model Design Justification</h2>
       <p style="margin-top: 30px; margin-bottom: 30px">
       <!-- <div class="column is-four-fifths"> -->
-          <div class="column is-centered has-text-centered">
-        <img src="static/figures/uncurated.jpg" alt="cars peace" width="800px"/>
-      </div>
-       </p>
-		<h2 class="subtitle is-centered has-text-centered">
-          Uncurated results with the same 8 random seeds comparing Stable Diffusion and Attend-and-Excite.
-        </h2>
-      </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/exp_multi.png" alt="exp_multi" width="800px"/>
+        </div>
+      </p>
+      <h2 class="subtitle is-centered has-text-centered">
+        Multiple generated hand images from same modalities. Green boxes indicate correct hand poses
+      </h2>
     </div>
-
-  </section> 
+  </div>
+</section> 
 
 <footer class="footer">
   <div class="columns is-centered">
