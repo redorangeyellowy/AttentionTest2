@@ -345,7 +345,8 @@
           <img src="static/images/optimization.png" alt="optimization" width="500px"/>
         </div>
         <p class="content has-text-justified">
-          Overall process of the optimization of AttentionHand. By global and local denoising of updated noisy embeddings with t diffusion steps, we obtain global and local predicted noises.
+          <b>Overall process of the optimization of AttentionHand.</b>
+          By global and local denoising of updated noisy embeddings with t diffusion steps, we obtain global and local predicted noises.
           They are optimized by L2 loss with global and local residual noises. 
           Note that global and local denoising networks share weights.
         </p>
@@ -364,7 +365,7 @@
         </div>
 		    <p class="content has-text-justified">
           Attention maps are well described their corresponding tokens in the case of with TAS. 
-          It implies that with TAS, AttentionHand can reflect hand-related tokens enough.
+          It implies that with TAS, AttentionHand can reflect hand-related tokens enough compare to the case of without TAS.
         </p>
         <div class="column is-centered has-text-centered">
           <img src="static/images/exp_Gaussian.png" alt="exp_Gaussian" width="700px"/>
@@ -398,13 +399,16 @@
           <img src="static/images/table_comparison.png" alt="table_comparison" width="700px"/>
         </div>
 		    <p class="content has-text-justified">
-          Network comparisons with prior works.
+          To justify our model's superiority, we compared the characteristics of prior works including our model.
+          As shown in the table, our model's distinctive and potential features compared to prior works are (1) harmonious preservation of locality (i.e., hand) with globality (i.e., in-the-wild scene), and (2) selective attention on hand-related tokens by cross attention.
         </p>
         <div class="column is-centered has-text-centered">
           <img src="static/images/table_VAS.png" alt="table_VAS" width="700px"/>
         </div>
         <p class="content has-text-justified">
-          Ablation studies on the visual attention stage (VAS).
+          Specifically, to harmonize globality and locality, we developed global and local designs for the visual attention stage (VAS).
+          Moreover, since the global and local branches are designed structurally same, we set them to share their weights for reducing the number of training parameters and improving the generalizability.
+          We experimentally verified the effectiveness of our design as shown in the table.
         </p>
       </div>
     </div>
@@ -420,13 +424,15 @@
           <img src="static/images/exp_multi.png" alt="exp_multi" width="700px"/>
         </div>
 		    <p class="content has-text-justified">
-          Multiple generated hand images from same modalities. Green boxes indicate correct hand poses.
+          To verify robustness of our generated dataset, we generated multiple hand images from same modalities as shown in the figure.
+          As a result, all generated images are perfectly well-aligned with given hand mesh images. 
         </p>
         <div class="column is-centered has-text-centered">
           <img src="static/images/exp_tsne.png" alt="exp_tsne" width="700px"/>
         </div>
         <p class="content has-text-justified">
-          t-SNE distribution of AttentionHand and MSCOCO.
+          Moreover, we found the t-SNE distribution of AttentionHand is broader than MSCOCO as shown in the figure.
+          As a result, we believe that AttentionHand can contribute to the downstream task with our extensive in-the-wild hand images, leading to alleviate the domain gap between indoor and outdoor scenes.
         </p>
       </div>
     </div>
