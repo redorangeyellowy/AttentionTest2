@@ -14,7 +14,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
-  <link rel="icon" href="static/figures/elephant.jpeg">
+  <link rel="icon" href="static/images/pizza.jpg">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -258,38 +258,50 @@
             To address these issues, we propose AttentionHand, a new method for the text-driven controllable hand image generation.
             AttentionHand is designed based on Stable Diffusion to create accurate, natural, realistic and harmonious in-the-wild hand images easily and infinitely as shown in the figure (c).
         </p>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/attention.png" alt="attention" width="700px"/>
+        </div>
+        <p class="content has-text-justified">
+            Especially, we attends on hand-related tokens from the given text prompt by leveraging attention maps as shown in the figure.
+            Red and green boxes represent attention maps without and with AttentionHand, respectively.
+        </p>
       </div>
     </div>
   </div>
 </section> 
 
 
-<section class="section hero is-light">
+<section class="hero is-small">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">How does it work?</h2>
-          <div class="content has-text-justified">
-          </div>
           <div class="column is-centered has-text-centered">
-          <img src="static/images/TAS.png" alt="TAS" width="700px"/>
+            <img src="static/images/TAS.png" alt="TAS" width="700px"/>
           </div>
           <p class="content has-text-justified">
-              About TAS.
+            Overall process of the text attention stage (TAS). By leveraging the hand-related tagging and refinement, we can highlight hand-related attention maps, which leads to update noisy embeddings with our novel loss.
           </p>
           <div class="column is-centered has-text-centered">
-          <img src="static/images/VAS.png" alt="VAS" width="700px"/>
+            <img src="static/images/VAS.png" alt="VAS" width="700px"/>
           </div>
           <div class="content has-text-justified">
-            <p>
-                Text conditioning in Stable Diffusion is performed via the cross-attention mechanism. As illustrated on the second row, the attention matrix can be reshaped to obtain a spatial map per text token. Intuitively, for a token to be manifested in the generated image, there should be at least one patch in its map with a high activation value. Attend-and-Excite embodies this intuition by shifting the latent such that it is encouraged to attend to all subject tokens in the text.
-                <br>
-                Given a prompt (e.g., "A lion with a crown"), we extract the subject tokens (lion, crown), and their corresponding attention maps (second row). We apply a Gaussian kernel on each attention map to obtain smoothed attention maps that consider the neighboring patches. Our optimization enhances the maximal activation of the most neglected token at timestep t and updates the latent code accordingly (row 3). In other words, we shift the latent in the current timestep such that the attention maps for the updated latents attend to the most neglected token. 
-            </p>
+          <p>
+            Overall process of the visual attention stage (VAS). By utilizing the global and local information, we can obtain the harmonious diffusion feature, which leads to generate high-fidelity hand images.
+          </p>
+          </div>
+          <div class="column is-centered has-text-centered">
+            <img src="static/images/optimization.png" alt="optimization" width="700px"/>
+          </div>
+          <div class="content has-text-justified">
+          <p>
+            Overall process of the optimization of AttentionHand. By global and local denoising of updated noisy embeddings with t diffusion steps, we obtain global and local predicted noises.
+            They are optimized by L2 loss with global and local residual noises. 
+            Note that global and local denoising networks share weights.
+          </p>
           </div>
         </div>
       </div>
-      <!--/ Abstract. -->
     </div>
   </section>
 
