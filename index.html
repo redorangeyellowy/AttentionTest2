@@ -79,12 +79,13 @@
             <div class="publication-links">
               
               <span class="link-block">
-                <!-- <a href="https://redorangeyellowy.github.io/AttentionHand/" target="_blank"
-                  class="external-link button is-normal is-rounded"> -->
+                <!-- <a href="https://redorangeyellowy.github.io/AttentionHand/" target="_blank" 
+                class="external-link button is-normal is-rounded"> -->
+                <a target="_blank" class="external-link button is-normal is-rounded">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv (comming soon)</span>
+                  <span>arXiv</span>
                 </a>
               </span>
 
@@ -92,10 +93,11 @@
               <span class="link-block">
                 <!-- <a href="https://github.com/redorangeyellowy/AttentionHand" target="_blank"
                 class="external-link button is-normal is-rounded"> -->
+                <a target="_blank" class="external-link button is-normal is-rounded">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
-                <span>Code (comming soon)</span>
+                <span>Code</span>
               </a>
               </span>
              <!--span class="link-block">
@@ -323,24 +325,24 @@
 </section> 
 
 <section class="hero is-small">
-  <div class="hero-body">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">How does it work?</h2>
           <div class="column is-centered has-text-centered">
-              <img src="static/images/TAS.png" alt="TAS" width="800px"/>
+              <img src="static/images/TAS.png" alt="TAS" width="700px"/>
           </div>
           <p class="content has-text-justified">
               Overall process of the text attention stage (TAS). By leveraging the hand-related tagging and refinement, we can highlight hand-related attention maps, which leads to update noisy embeddings with our novel loss.
           </p>
           <div class="column is-centered has-text-centered">
-              <img src="static/images/VAS.png" alt="VAS" width="700px"/>
+              <img src="static/images/VAS.png" alt="VAS" width="500px"/>
           </div>
           <p>
               Overall process of the visual attention stage (VAS). By utilizing the global and local information, we can obtain the harmonious diffusion feature, which leads to generate high-fidelity hand images.
           </p>
           <div class="column is-centered has-text-centered">
-              <img src="static/images/optimization.png" alt="optimization" width="700px"/>
+              <img src="static/images/optimization.png" alt="optimization" width="500px"/>
           </div>
           <p>
               Overall process of the optimization of AttentionHand. By global and local denoising of updated noisy embeddings with t diffusion steps, we obtain global and local predicted noises.
@@ -356,25 +358,27 @@
   <div class="hero-body">
     <div class="container">
       <!-- <p style="margin-top: 30px; margin-bottom: 30px"> -->
-      <h2 class="title has-text-centered">Using Cross-Attention as Explanation</h2>
+      <h2 class="title has-text-centered">Exploration for Text Attention Stage</h2>
       <!-- </p> -->
-      
       <div id="results-carousel" class="carousel results-carousel">
         <div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_cat_frog.png" width="400" class="is-centered"/>
+        <img src="static/images/exp_TAS1.png" width="400" class="is-centered"/>
         </div>
         <div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_elephant_crown.png" width="400" class="is-centered"/>
+        <img src="static/images/exp_TAS2.png" width="400" class="is-centered"/>
         </div>
-		<div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_turtle_bowl.png" width="400" class="is-centered"/>
+		    <div class="column is-centered has-text-centered">
+        <img src="static/images/exp_TAS3.png" width="400" class="is-centered"/>
         </div>
-		<div class="column is-centered has-text-centered">
-        <img src="static/figures/expl_backpack_glasses.png" width="400" class="is-centered"/>
+		    <div class="column is-centered has-text-centered">
+        <img src="static/images/exp_TAS4.png" width="400" class="is-centered"/>
         </div>
+        <p class="content has-text-justified">
+          TAS
+        </p>
+      </div>  
     </div>
   </div>
-
 </section>
 
 
