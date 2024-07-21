@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <meta property="og:title" content="Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models"/>
-  <meta property="og:url" content="https://attendandexcite.github.io/attend-and-excite/"/>
-  <meta property="og:image" content="static/images/og_tag_header_image.jpg" />
+  <meta property="og:title" content="AttentionHand: Text-driven Controllable Hand Image Generation for 3D Hand Reconstruction in the Wild"/>
+  <meta property="og:url" content="https://redorangeyellowy.github.io/AttentionHand/"/>
+  <!-- <meta property="og:image" content="static/images/og_tag_header_image.jpg" /> -->
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
 
-  <title>Attend and Excite</title>
+  <title>AttentionHand</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -39,8 +39,8 @@
     <div class="container is-max-widescreen">
       <!-- <div class="columns is-centered"> -->
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Attend-and-Excite: Attention-Based Semantic Guidance for
-Text-to-Image Diffusion Models</h1>
+          <h1 class="title is-1 publication-title">AttentionHand: Text-driven Controllable Hand Image Generation for 3D Hand Reconstruction in the Wild</h1>
+          <h1 class="title is-3">ECCV 2024</h1>
         </div>
     </div>
   </div>   
@@ -60,37 +60,37 @@ Text-to-Image Diffusion Models</h1>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="https://hila-chefer.github.io/" target="_blank">Hila Chefer</a><sup>*</sup>,</span>
-            <span class="author-block"><a href="https://yuval-alaluf.github.io/" target="_blank">Yuval Alaluf</a><sup>*</sup>,</span>
-            <span class="author-block"><a href="https://yael-vinker.github.io/website/" target="_blank">Yael Vinker</a>,</span>
-            <span class="author-block"><a href="http://www.cs.tau.ac.il/~wolf/" target="_blank">Lior Wolf</a>,</span>            
-            <span class="author-block"><a href="https://danielcohenor.com/" target="_blank">Daniel Cohen-Or</a></span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=1OSw79kAAAAJ&hl=ko" target="_blank">Junho Park</a><sup>1,2*</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=O9QSF7UAAAAJ&hl=ko&oi=ao" target="_blank">Kyeongbo Kong</a><sup>3*</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=3WYxpuYAAAAJ&hl=ko&oi=ao" target="_blank">Sukju Kang</a><sup>1</sup>,</span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Tel Aviv University</span> 
+            <span class="author-block"><sup>1</sup>Sogang University,</span>
+            <span class="author-block"><sup>2</sup>LG Electronics,</span>
+            <span class="author-block"><sup>3</sup>Pusan National University</span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">SIGGRAPH 2023</span> 
+            <span class="author-block">* : Equal Contribution</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2301.13826" target="_blank"
+                <a href="https://redorangeyellowy.github.io/AttentionHand/" target="_blank"
                   class="external-link button is-normal is-rounded">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>arXiv (comming soon)</span>
                 </a>
               </span>
 
               <!-- Colab Link. -->
               <span class="link-block">
-                <a href="https://github.com/AttendAndExcite/Attend-and-Excite" target="_blank"
+                <a href="https://github.com/redorangeyellowy/AttentionHand" target="_blank"
                 class="external-link button is-normal is-rounded">
                 <span class="icon">
                   <i class="fab fa-github"></i>
@@ -108,7 +108,7 @@ Text-to-Image Diffusion Models</h1>
               </a>
              </span -->
             
-            <span class="link-block">
+            <!-- <span class="link-block">
               <a href="https://huggingface.co/spaces/AttendAndExcite/Attend-and-Excite"  target="_blank"
                  class="external-link button is-normal is-rounded">
                 <span class="icon">
@@ -116,15 +116,10 @@ Text-to-Image Diffusion Models</h1>
                 </span>
                 <span>Demo</span>
               </a>
-             </span>
+             </span> -->
            
             </div>
           </div>
-
-          <div class="is-size-6 publication-authors">
-            <span class="author-block" font-size="6px"><sup>*</sup> Denotes equal contribution</span> 
-          </div>
-
         </div>
       </div>
     </div>
@@ -140,11 +135,13 @@ Text-to-Image Diffusion Models</h1>
       <div class="container">
       <div class="item">
       <div class="column is-centered has-text-centered">
-        <img src="static/figures/teaser.jpg" alt="Attend_and_Excite"/>
-      
+        <img src="static/images/pipeline.png" alt="pipeline"/>
       <h2 class="subtitle">
-	Given a pre-trained text-to-image diffusion model, our method guides the generative
-	model to modify the cross-attention values during the image synthesis process to attend to all subjects in the text. Stable Diffusion alone (top row) struggles to generate multiple objects (e.g., a horse and a dog). However, by incorporating Attend-and-Excite (bottom row) to strengthen the subject tokens (marked in blue), we achieve images that are more semantically faithful with respect to the input text prompts. 
+        We propose a novel method, AttentionHand, for text-driven controllable hand image generation.
+        (1) In the data preparation phase, we prepare global and local RGB images, global and local hand mesh images, bounding box, and text prompt.
+        (2) In the encoding phase, we get global and local latent image embeddings, and text embedding.
+        (3) In the conditioning phase, we refine image embeddings through the text attention stage, and obtain the diffusion feature through the visual attention stage.
+        (4) In the decoding phase, we generate a new hand image from the diffusion feature.
       </h2>
 	  </div>
     </div>
@@ -171,24 +168,17 @@ Text-to-Image Diffusion Models</h1>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent text-to-image generative models have demonstrated an unparalleled
-			ability to generate diverse and creative imagery guided by a target text
-			prompt. While revolutionary, current state-of-the-art diffusion models may
-			still fail in generating images that fully convey the semantics in the given
-			text prompt. We analyze the publicly available Stable Diffusion model and
-			assess the existence of catastrophic neglect, where the model fails to generate
-			one or more of the subjects from the input prompt. Moreover, we find that
-			in some cases the model also fails to correctly bind attributes (e.g. colors)
-			to their corresponding subjects. To help mitigate these failure cases, we
-			introduce the concept of Generative Semantic Nursing (GSN), where we
-			seek to intervene in the generative process on the fly during inference time
-			to improve the faithfulness of the generated images. Using an attention-
-			based formulation of GSN, dubbed Attend-and-Excite, we guide the model
-			to refine the cross-attention units to attend to all subject tokens in the text
-			prompt and strengthen — or excite — their activations, encouraging the
-			model to generate all subjects described in the text prompt. We compare
-			our approach to alternative approaches and demonstrate that it conveys the
-			desired concepts more faithfully across a range of text prompts.
+            Recently, there has been a significant amount of research conducted on 3D hand reconstruction to use various forms of human-computer interaction. 
+            However, 3D hand reconstruction in the wild is challenging due to extreme lack of in-the-wild 3D hand datasets. 
+            Especially, when hands are in complex pose such as interacting hands, the problems like appearance similarity, self-handed occclusion and depth ambiguity make it more difficult. 
+            To overcome these issues, we propose AttentionHand, a novel method for text-driven controllable hand image generation. 
+            Since AttentionHand can generate various and numerous in-the-wild hand images well-aligned with 3D hand label, we can acquire a new 3D hand dataset, and can relieve the domain gap between indoor and outdoor scenes. 
+            Our method needs easy-to-use four modalities (i.e, an RGB image, a hand mesh image from 3D label, a bounding box, and a text prompt). 
+            These modalities are embedded into the latent space by the encoding phase. 
+            Then, through the text attention stage, hand-related tokens from the given text prompt are attended to highlight hand-related regions of the latent embedding. 
+            After the highlighted embedding is fed to the visual attention stage, hand-related regions in the embedding are attended by conditioning global and local hand mesh images with the diffusion-based pipeline. 
+            In the decoding phase, the final feature is decoded to new hand images, which are well-aligned with the given hand mesh image and text prompt. 
+            As a result, AttentionHand achieved state-of-the-art among text-to-hand image generation models, and the performance of 3D hand mesh reconstruction was improved by additionally training with hand images generated by AttentionHand.
           </p>
         </div>
       </div>
