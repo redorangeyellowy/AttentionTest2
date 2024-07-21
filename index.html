@@ -376,11 +376,11 @@
           Howver, in the case of fixed Gaussian filter, generated images are well-aligned with given hand mesh images and look natural.
           Hence, we determined fixed Gaussian filter makes the generated image plausibly regardless of diffusion timestep.
           <br>
-          <b>(2) Ablation study for loss.</b>
+          <b>(2) Ablation study for our loss.</b>
           While the load balancing loss flattens the 2D attention map as 1D representation, leading to distort spatial knowledge, our loss updates the image embedding based on the spatial information of the attention map.
           Therefore, generated images with our loss are well-fit with given hand mesh images.
           <br>
-          <b>(3) Ablation study for the regularization of updated noise.</b>
+          <b>(3) Ablation study for regularization of updated noise.</b>
           If the regularization term is randomly set, the updated noise tends to be out of distribution.
           Specifically, generated images are not aligned with given mesh images, or missed some hands. 
           Therefore, it is necessary to regularize the updated noise for faithful hand image generation.
