@@ -378,45 +378,46 @@
   </div>
 </section> 
 
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- <p style="margin-top: 30px; margin-bottom: 30px"> -->
-      <h2 class="title has-text-centered">Exploration for Text Attention Stage</h2>
-      <!-- </p> -->
-      <div id="results-carousel" class="carousel results-carousel">
+<section class="hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Model Design Justification</h2>
         <div class="column is-centered has-text-centered">
-        <img src="static/images/exp_TAS1.png" width="800px" class="is-centered"/>
+          <img src="static/images/table_comparison.png" alt="table_comparison" width="700px"/>
         </div>
+		    <p class="content has-text-justified">
+          Network comparisons with prior works.
+        </p>
         <div class="column is-centered has-text-centered">
-        <img src="static/images/exp_TAS2.png" width="800px" class="is-centered"/>
+          <img src="static/images/table_VAS.png" alt="table_VAS" width="700px"/>
         </div>
-		    <div class="column is-centered has-text-centered">
-        <img src="static/images/exp_TAS3.png" width="800px" class="is-centered"/>
-        </div>
-		    <div class="column is-centered has-text-centered">
-        <img src="static/images/exp_TAS4.png" width="800px" class="is-centered"/>
-        </div>
-      </div>  
+        <p class="content has-text-justified">
+          Ablation studies on the visual attention stage (VAS).
+        </p>
+      </div>
     </div>
   </div>
-</section>
+</section> 
 
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper poster -->
-      <h2 class="title has-text-centered">Model Design Justification</h2>
-      <p style="margin-top: 30px; margin-bottom: 30px">
-      <!-- <div class="column is-four-fifths"> -->
+<section class="hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Robustness of Our Generated Dataset</h2>
         <div class="column is-centered has-text-centered">
-          <img src="static/images/exp_multi.png" alt="exp_multi" width="800px"/>
+          <img src="static/images/exp_multi.png" alt="exp_multi" width="700px"/>
         </div>
-      </p>
-      <h2 class="subtitle is-centered has-text-centered">
-        Multiple generated hand images from same modalities. Green boxes indicate correct hand poses
-      </h2>
+		    <p class="content has-text-justified">
+          Multiple generated hand images from same modalities. Green boxes indicate correct hand poses.
+        </p>
+        <div class="column is-centered has-text-centered">
+          <img src="static/images/exp_tsne.png" alt="exp_tsne" width="700px"/>
+        </div>
+        <p class="content has-text-justified">
+          t-SNE distribution of AttentionHand and MSCOCO.
+        </p>
+      </div>
     </div>
   </div>
 </section> 
