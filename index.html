@@ -140,13 +140,9 @@
         <img src="static/images/pipeline.png" alt="pipeline"/>
       <h2 class="subtitle">
         We propose a novel method, AttentionHand, for text-driven controllable hand image generation.
-        <br>
         (1) In the data preparation phase, we prepare global and local RGB images, global and local hand mesh images, bounding box, and text prompt.
-        <br>
         (2) In the encoding phase, we get global and local latent image embeddings from VQ-GAN, and text embedding from CLIP.
-        <br>
         (3) In the conditioning phase, we refine image embeddings through the text attention stage, and obtain the diffusion feature through the visual attention stage.
-        <br>
         (4) In the decoding phase, we generate a new hand image from the diffusion feature.
       </h2>
 	  </div>
@@ -309,7 +305,7 @@
             3D hand mesh reconstruction becomes difficult <b>when hands are in the wild, due to insufficiency of in-the-wild 3D hand datasets.</b>
             Compared to in-the-lab datasets, acquisition in-the-wild datasets is challenging due to unpredictable conditions such as weather, lighting, cost of sensors, and safety issues on crowded roads and public places.
             Even if an in-the-wild dataset is collected, data diversity would be poor due to the aforementioned severe constraints.
-            Although arbitrary labels can be obtained through pseudo annotation, <b>the precision and accuracy is still poor compared to in-the-lab datasets as shown in the figure (a).</b>
+            <b>Although arbitrary labels can be obtained through pseudo annotation, the precision and accuracy is still poor compared to in-the-lab datasets as shown in the figure (a).</b>
             To tackle this problem, several synthetic datasets have introduced.
             However, <b>since the hand and background images are synthesized out of harmony, they consist of unnatural and unrealistic hand images as shown in the figure (b).</b> 
             Hence, it is difficult to overcome the domain gap between indoor and outdoor scenes with synthetic datasets.
@@ -330,13 +326,20 @@
           <img src="static/images/TAS.png" alt="TAS" width="700px"/>
 		</div>
 		<p class="content has-text-justified">
-      Overall process of the text attention stage (TAS). By leveraging the hand-related tagging and refinement, we can highlight hand-related attention maps, which leads to update noisy embeddings with our novel loss.
+      <b>Overall process of the text attention stage (TAS).</b>
+      TAS attends on hand-related tokens from the given text prompt by leveraging attention maps.
+      Specifically, TAS extracts hand-related attention maps (i.e., <i>holding</i> and <i>hand</i>), and these attention maps are updated to highlight hand-related regions by the refinement based on the softmax operation and Gaussian filter.
+      With TAS, we can obtain more hand-focused images than before.
         </p>
         <div class="column is-centered has-text-centered">
           <img src="static/images/VAS.png" alt="VAS" width="500px"/>
         </div>
         <p class="content has-text-justified">
-          Overall process of the visual attention stage (VAS). By utilizing the global and local information, we can obtain the harmonious diffusion feature, which leads to generate high-fidelity hand images.
+          <b>Overall process of the visual attention stage (VAS).</b>
+          VAS attends on hand-related regions by conditioning global and local hand mesh images with the SD-based pipeline.
+          With global and local information, AttentionHand can be jointly optimized to reflect the global context (i.e., in-the-wild background) and local context (i.e., hand-focused foreground.)
+          In the end of the conditioning phase, we finally get the diffusion feature, which is decoded to new hand images in the decoding phase. 
+          Hence, AttentionHand can generate well-aligned hand images with the given mesh image and text prompt for the 3D hand mesh reconstruction in the wild. 
         </p>
         <div class="column is-centered has-text-centered">
           <img src="static/images/optimization.png" alt="optimization" width="500px"/>
@@ -355,20 +358,31 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Exploration for Text Attention Stage</h2>
+        <h2 class="title is-3">Exploration of Text Attention Stage</h2>
         <div class="column is-centered has-text-centered">
           <img src="static/images/exp_TAS.png" alt="exp_TAS" width="700px"/>
         </div>
 		    <p class="content has-text-justified">
-          Attention maps with red and green box are results without and with TAS, respectively.
-          Red and green bounding boxes indicate wrong and correct hand poses, respectively.
+          Attention maps are well described their corresponding tokens in the case of with TAS. 
+          It implies that with TAS, AttentionHand can reflect hand-related tokens enough.
         </p>
         <div class="column is-centered has-text-centered">
           <img src="static/images/exp_Gaussian.png" alt="exp_Gaussian" width="700px"/>
         </div>
         <p class="content has-text-justified">
-          Ablation studies on Gaussian filter, losses, and the regularization of the residual noise for the text attention stage (TAS).
-          Red and green bounding boxes indicate wrong and correct hand poses, respectively.
+          <b>(1) Ablation study for Gaussian filter.</b>
+          In the case of no/random Gaussian filter, the hand was disappeared or its shape became strange.
+          Howver, in the case of fixed Gaussian filter, generated images are well-aligned with given hand mesh images and look natural.
+          Hence, we determined fixed Gaussian filter makes the generated image plausibly regardless of diffusion timestep.
+          <br>
+          <b>(2) Ablation study for loss.</b>
+          While the load balancing loss flattens the 2D attention map as 1D representation, leading to distort spatial knowledge, our loss updates the image embedding based on the spatial information of the attention map.
+          Therefore, generated images with our loss are well-fit with given hand mesh images.
+          <br>
+          <b>(3) Ablation study for the regularization of updated noise.</b>
+          If the regularization term is randomly set, the updated noise tends to be out of distribution.
+          Specifically, generated images are not aligned with given mesh images, or missed some hands. 
+          Therefore, it is necessary to regularize the updated noise for faithful hand image generation.
         </p>
       </div>
     </div>
